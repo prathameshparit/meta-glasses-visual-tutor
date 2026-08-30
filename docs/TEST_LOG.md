@@ -135,3 +135,24 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Result: PASS
 - Evidence: redacted `gh auth status` output.
 - Follow-up: choose repository visibility, then create the remote and push the documentation baseline.
+
+## T-20260830-06 — Public repository creation
+
+- Milestone: 1
+- Build/commit: `b2e321d`
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: Codex
+- Environment:
+  - GitHub account: `prathameshparit`
+  - Repository: `prathameshparit/meta-glasses-visual-tutor`
+  - Default branch: `main`
+- Preconditions: secure GitHub CLI login active; user approved repository creation and public visibility.
+- Steps:
+  1. Create the public repository using GitHub CLI.
+  2. Add `origin` and push local `main`.
+  3. Query repository visibility, default branch, and Actions permissions.
+- Expected: public remote exists, tracks local `main`, and permits Actions workflows.
+- Actual: repository is public, `main` tracks `origin/main`, and Actions is enabled with all actions allowed.
+- Result: PASS
+- Evidence: GitHub CLI repository JSON and Actions permissions API response.
+- Follow-up: finish the remaining iPhone storage and Apple Windows connection prerequisites.

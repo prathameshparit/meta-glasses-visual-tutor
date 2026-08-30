@@ -22,7 +22,7 @@ On-device vision models are optional and will require a recent iPhone plus sever
 - [ ] Free Apple Account available for sideload signing.
 - [ ] Apple Account has two-factor authentication working.
 - [x] Meta account and Meta AI pairing available.
-- [ ] Decide whether the source repository may be public. Public repositories generally avoid consuming the limited private-repository Actions allowance, but this must be rechecked against current GitHub billing before the first run.
+- [x] Source repository is public: `prathameshparit/meta-glasses-visual-tutor`.
 
 Recommended: use a separate Apple Account for sideload development. Do not place its password in this repository or GitHub Actions.
 
@@ -52,8 +52,8 @@ Sideloadly's current documentation should be followed for the exact iTunes/iClou
 
 ## Cloud build prerequisites
 
-- [ ] Repository created on GitHub.
-- [ ] GitHub Actions enabled for the repository.
+- [x] Repository created on GitHub: https://github.com/prathameshparit/meta-glasses-visual-tutor
+- [x] GitHub Actions enabled for the repository; API audit reports `enabled: true` and `allowed_actions: all`.
 - [ ] Workflow uses a current macOS/Xcode image compatible with the iPhone's iOS version.
 - [ ] Workflow builds without signing: no Apple password, certificate, or provisioning profile in CI.
 - [ ] Workflow uploads the unsigned IPA as a build artifact.
