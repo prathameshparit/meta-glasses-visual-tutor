@@ -364,3 +364,19 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Result: FAIL — expected iOS sideload security requirement, not a build failure.
 - Evidence: user-reported iPhone error text.
 - Follow-up: go to **Settings → Privacy & Security → Developer Mode**, turn it on, approve the restart, unlock after restart, and approve the final Developer Mode confirmation. Then open **Visual Tutor** again.
+
+## T-20260830-19 — Physical launch of the free-signed proof app
+
+- Milestone: 3
+- Build/commit: `1edfb43`; GitHub Actions build `1`.
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user
+- Preconditions: the IPA was installed through Sideloadly; the developer profile was trusted; iPhone Developer Mode was enabled and the device restarted.
+- Steps:
+  1. Open **Visual Tutor** on the physical iPhone.
+  2. Inspect the proof screen's build label.
+- Expected: the app launches and displays the cloud-build proof with build `1`.
+- Actual: user reports that **Visual Tutor** opens successfully and displays `Cloud build proof` and `Build 1`.
+- Result: PASS for installation, iOS profile trust, Developer Mode, physical launch, and build-identifier match.
+- Evidence: user confirmation.
+- Follow-up: record the exact free-signing expiry/refresh date shown by Sideloadly. The proof app has no persisted user data, so reinstall-data preservation is not applicable to this intentionally stateless test app.

@@ -12,7 +12,7 @@ The project will later support memory capture and field checklists, but the firs
 
 Next action:
 
-- On the iPhone, enable **Developer Mode**, allow its required restart, then open **Visual Tutor** and verify it displays `Cloud build proof` and `Build 1`.
+- Record the exact Sideloadly expiry/refresh date for the free-signed proof app. The remaining product work stays blocked until that final Milestone 3 record is captured.
 
 Milestones 1 and 2 passed. No credentials are stored in this repository.
 
@@ -33,8 +33,8 @@ Milestones 1 and 2 passed. No credentials are stored in this repository.
 - Sideloadly lists the connected iPhone over USB.
 - A free Apple Account and two-factor authentication are available for the later sideload step; its credentials remain private.
 - GitHub Actions produced and artifact-verified an unsigned iPhone IPA for commit `1edfb43`.
-- The first Sideloadly installation appears complete, but iOS is blocking its developer profile until it is explicitly trusted.
-- iOS also requires device-wide Developer Mode before it will run the sideloaded proof app.
+- The first Sideloadly installation, profile trust, and device-wide Developer Mode are complete.
+- Visual Tutor launches on the iPhone and displays `Cloud build proof` / `Build 1`.
 - The legacy web iCloud installer failed with Windows Installer error `1722`; it is not installed and is not needed for the now-proven USB device path.
 
 Serial numbers are intentionally not copied into this repository.
