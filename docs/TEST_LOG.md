@@ -266,3 +266,19 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Result: BLOCKED.
 - Evidence: installed Appx package query and redacted PnP query.
 - Follow-up: unlock the iPhone, accept any Trust prompt in Apple Devices/iPhone, then reopen Sideloadly and verify its drop-down.
+
+## T-20260830-13 — Sideloadly USB device-selector confirmation
+
+- Milestone: 1
+- Build/commit: `d2a4cd5`
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user
+- Preconditions: iPhone unlocked and connected by USB; Apple Devices installed and launched; Sideloadly restarted.
+- Steps:
+  1. Inspect Sideloadly's iDevice selector.
+  2. Verify the connected iPhone is presented as a USB device.
+- Expected: the iPhone is selectable in Sideloadly.
+- Actual: Sideloadly displays `Prathamesh's iPhone (26.5)` with a USB connection in the iDevice selector.
+- Result: PASS.
+- Evidence: user-supplied screenshot; device identifier intentionally omitted from the repository.
+- Follow-up: confirm a free Apple Account with working two-factor authentication before starting the signed-install milestone. The unsigned cloud-build milestone does not require those credentials.

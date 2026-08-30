@@ -12,7 +12,7 @@ The project will later support memory capture and field checklists, but the firs
 
 Current blockers:
 
-- Make the connected iPhone visible in Sideloadly's device selector.
+- Confirm the Apple Account used for free sideloading has two-factor authentication available. This is needed before the install gate, not for the unsigned cloud build.
 
 We will not attempt a cloud build until this audit passes.
 
@@ -30,7 +30,8 @@ We will not attempt a cloud build until this audit passes.
 - The iPhone has `6 GB` free storage, passing the `5 GB` prerequisite.
 - Apple desktop iTunes `12.13.10.3` and Apple Devices for Windows are installed.
 - Windows detects the connected iPhone as a healthy Apple Mobile Device USB composite device.
-- Sideloadly does not yet list the iPhone. The legacy web iCloud installer failed with Windows Installer error `1722`; it is not installed.
+- Sideloadly lists the connected iPhone over USB.
+- The legacy web iCloud installer failed with Windows Installer error `1722`; it is not installed and is not needed for the now-proven USB device path.
 
 Serial numbers are intentionally not copied into this repository.
 
