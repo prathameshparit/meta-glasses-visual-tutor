@@ -282,3 +282,19 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Result: PASS.
 - Evidence: user-supplied screenshot; device identifier intentionally omitted from the repository.
 - Follow-up: confirm a free Apple Account with working two-factor authentication before starting the signed-install milestone. The unsigned cloud-build milestone does not require those credentials.
+
+## T-20260830-14 — Free Apple Account readiness
+
+- Milestone: 1
+- Build/commit: `262fcf3`
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user
+- Preconditions: Sideloadly USB device-selector gate passed.
+- Steps:
+  1. Confirm a free Apple Account is available for the later Sideloadly install.
+  2. Confirm that its two-factor authentication can be approved.
+- Expected: a free Apple Account and its two-factor authentication are available without storing credentials in the project.
+- Actual: user confirmed both are ready. No account identifier, password, session data, or verification code was requested or stored.
+- Result: PASS — Milestone 1 acceptance gate passes.
+- Evidence: user confirmation; repository credential-pattern scan is clean.
+- Follow-up: begin Milestone 2 with a minimal unsigned IPA cloud build.

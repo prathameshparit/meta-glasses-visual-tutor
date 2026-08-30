@@ -17,7 +17,7 @@ Gate: all documents exist and agree on the next milestone.
 
 ## Milestone 1 — Prerequisite audit
 
-**Status:** IN PROGRESS
+**Status:** DONE
 
 Actions:
 
@@ -34,7 +34,7 @@ Gate:
 
 ## Milestone 2 — Cloud-build proof
 
-**Status:** BLOCKED BY MILESTONE 1
+**Status:** IN PROGRESS
 
 Goal: prove that Windows edits can produce a downloadable unsigned iPhone IPA without a Mac or paid Apple membership.
 

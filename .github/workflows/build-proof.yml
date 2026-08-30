@@ -1,0 +1,56 @@
+name: Build unsigned iPhone proof
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "VisualTutorProof/**"
+      - "VisualTutorProof.xcodeproj/**"
+      - ".github/workflows/build-proof.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-unsigned-ipa:
+    runs-on: macos-15
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build without code signing
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -project VisualTutorProof.xcodeproj \
+            -scheme VisualTutorProof \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CURRENT_PROJECT_VERSION="${GITHUB_RUN_NUMBER}" \
+            build
+
+      - name: Package unsigned IPA
+        run: |
+          set -euo pipefail
+          APP_PATH="build/Build/Products/Release-iphoneos/VisualTutorProof.app"
+          test -d "$APP_PATH"
+          mkdir -p package/Payload
+          ditto --rsrc --extattr "$APP_PATH" package/Payload/VisualTutorProof.app
+          (cd package && zip -qry "../VisualTutorProof-${GITHUB_SHA::7}.ipa" Payload)
+          unzip -l "VisualTutorProof-${GITHUB_SHA::7}.ipa" | grep -q 'Payload/VisualTutorProof.app/'
+          printf '%s\n' "commit=${GITHUB_SHA}" "build=${GITHUB_RUN_NUMBER}" > build-metadata.txt
+
+      - name: Upload unsigned IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-tutor-proof-${{ github.sha }}
+          path: |
+            VisualTutorProof-*.ipa
+            build-metadata.txt
+          if-no-files-found: error

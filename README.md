@@ -8,13 +8,13 @@ The project will later support memory capture and field checklists, but the firs
 
 ## Current status
 
-**Milestone 1 — Prerequisite audit: IN PROGRESS**
+**Milestone 2 — Cloud-build proof: IN PROGRESS**
 
-Current blockers:
+Next action:
 
-- Confirm the Apple Account used for free sideloading has two-factor authentication available. This is needed before the install gate, not for the unsigned cloud build.
+- Build a minimal unsigned IPA in GitHub Actions and inspect its artifact.
 
-We will not attempt a cloud build until this audit passes.
+Milestone 1 passed. No credentials are stored in this repository.
 
 ## Confirmed from the supplied screenshots
 
@@ -31,6 +31,7 @@ We will not attempt a cloud build until this audit passes.
 - Apple desktop iTunes `12.13.10.3` and Apple Devices for Windows are installed.
 - Windows detects the connected iPhone as a healthy Apple Mobile Device USB composite device.
 - Sideloadly lists the connected iPhone over USB.
+- A free Apple Account and two-factor authentication are available for the later sideload step; its credentials remain private.
 - The legacy web iCloud installer failed with Windows Installer error `1722`; it is not installed and is not needed for the now-proven USB device path.
 
 Serial numbers are intentionally not copied into this repository.

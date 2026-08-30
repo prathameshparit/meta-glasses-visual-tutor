@@ -19,8 +19,8 @@ On-device vision models are optional and will require a recent iPhone plus sever
 ## Accounts
 
 - [x] GitHub account available: `prathameshparit`.
-- [ ] Free Apple Account available for sideload signing.
-- [ ] Apple Account has two-factor authentication working.
+- [x] Free Apple Account available for sideload signing. **Confirmed by user; credential not recorded.**
+- [x] Apple Account has two-factor authentication working. **Confirmed by user; code/device details not recorded.**
 - [x] Meta account and Meta AI pairing available.
 - [x] Source repository is public: `prathameshparit/meta-glasses-visual-tutor`.
 
