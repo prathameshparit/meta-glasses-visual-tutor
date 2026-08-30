@@ -317,3 +317,20 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Result: PASS — Milestone 2 acceptance gate passes.
 - Evidence: GitHub Actions run and locally inspected downloaded artifact. The runner emitted a Node 20 deprecation notice for GitHub-maintained actions but it did not affect this build.
 - Follow-up: use this exact artifact in Sideloadly for Milestone 3; record the physical launch result before adding Meta SDK code.
+
+## T-20260830-16 — First free-sideload installation attempt
+
+- Milestone: 3
+- Build/commit: unsigned IPA from `1edfb43`; Sideloadly-side signing uses the user's private Apple Account.
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user
+- Preconditions: Sideloadly detects the iPhone over USB; verified unsigned IPA selected; Apple Account and two-factor authentication available.
+- Steps:
+  1. Select the verified IPA in Sideloadly.
+  2. Complete local Apple Account authentication and any device-side approval without exposing credentials to the project.
+  3. Start the installation.
+- Expected: Sideloadly signs and installs the proof app on the connected iPhone.
+- Actual: user reports the process appears complete. No Sideloadly completion log or iPhone launch screen has been supplied yet.
+- Result: PENDING — do not close Milestone 3 until the app is launched on the iPhone.
+- Evidence: user report only; no credentials, codes, or account identifiers recorded.
+- Follow-up: locate and open **Visual Tutor** on the iPhone. Confirm it displays `Cloud build proof` and `Build 1`, then record any iOS Developer Mode/profile-trust prompt and the expiry date Sideloadly reports.

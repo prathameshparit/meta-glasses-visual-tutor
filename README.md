@@ -12,7 +12,7 @@ The project will later support memory capture and field checklists, but the firs
 
 Next action:
 
-- Download the verified unsigned IPA and install it through Sideloadly using the user's private Apple Account.
+- Open **Visual Tutor** on the iPhone and verify it displays `Cloud build proof` and `Build 1`.
 
 Milestones 1 and 2 passed. No credentials are stored in this repository.
 
@@ -33,6 +33,7 @@ Milestones 1 and 2 passed. No credentials are stored in this repository.
 - Sideloadly lists the connected iPhone over USB.
 - A free Apple Account and two-factor authentication are available for the later sideload step; its credentials remain private.
 - GitHub Actions produced and artifact-verified an unsigned iPhone IPA for commit `1edfb43`.
+- The user reports that the first Sideloadly install appears to have completed; on-device launch evidence is still pending.
 - The legacy web iCloud installer failed with Windows Installer error `1722`; it is not installed and is not needed for the now-proven USB device path.
 
 Serial numbers are intentionally not copied into this repository.
