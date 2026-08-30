@@ -14,7 +14,6 @@ Current blockers:
 
 - Increase iPhone free storage from `3.85 GB` to at least `5 GB`.
 - Install the Apple Windows components required by Sideloadly; they are not currently detected.
-- Revoke the GitHub token exposed in chat, then complete GitHub CLI browser authentication.
 - Create the project repository and choose public or private visibility.
 
 We will not attempt a cloud build until this audit passes.
@@ -28,6 +27,7 @@ We will not attempt a cloud build until this audit passes.
 - Glasses release version is `127.14.0.220.436`.
 - Test phone is an iPhone 14 running iOS `26.5`.
 - Sideloadly v0.60 is installed and running on Windows.
+- GitHub CLI is securely authenticated as `prathameshparit` using the Windows credential keyring.
 
 Serial numbers are intentionally not copied into this repository.
 

@@ -26,10 +26,12 @@ On-device vision models are optional and will require a recent iPhone plus sever
 
 Recommended: use a separate Apple Account for sideload development. Do not place its password in this repository or GitHub Actions.
 
+Security note: a GitHub personal access token was exposed in chat during setup. The user reported it revoked on 2026-08-30. It was never used or stored by this project.
+
 ## Windows software
 
 - [x] Git installed: `git version 2.37.2.windows.2`.
-- [ ] GitHub authentication configured. GitHub CLI `2.98.0` is installed; browser/device authentication is pending token revocation.
+- [x] GitHub authentication configured. GitHub CLI `2.98.0` is authenticated as `prathameshparit` and stores its credential in the Windows keyring.
 - [x] Sideloadly v0.60 installed and running from the user's local application directory.
 - [ ] Apple iTunes installed using the installer required by Sideloadly.
 - [ ] Apple iCloud installed using the installer required by Sideloadly.

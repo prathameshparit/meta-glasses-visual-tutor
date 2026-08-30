@@ -114,3 +114,24 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
   1. Revoke the exposed personal access token in GitHub settings.
   2. Authenticate with `gh auth login` using the browser/device flow.
   3. Create the project repository without storing credentials in files or command arguments.
+
+## T-20260830-05 — Secure GitHub authentication
+
+- Milestone: 1
+- Build/commit: documentation and local tooling
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user completed GitHub device authorization; Codex verified status
+- Environment:
+  - GitHub account: `prathameshparit`
+  - GitHub CLI: `2.98.0`
+  - Credential storage: Windows keyring
+- Preconditions: exposed personal access token reported revoked by the user.
+- Steps:
+  1. Start GitHub CLI browser/device authorization.
+  2. User approves the one-time device code on GitHub.
+  3. Run `gh auth status` without displaying credential contents.
+- Expected: active GitHub login stored outside the repository and command-line environment.
+- Actual: GitHub CLI reports an active `prathameshparit` login using the keyring with repository and workflow access.
+- Result: PASS
+- Evidence: redacted `gh auth status` output.
+- Follow-up: choose repository visibility, then create the remote and push the documentation baseline.
