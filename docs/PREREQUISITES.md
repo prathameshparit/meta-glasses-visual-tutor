@@ -33,8 +33,8 @@ Security note: a GitHub personal access token was exposed in chat during setup. 
 - [x] Git installed: `git version 2.37.2.windows.2`.
 - [x] GitHub authentication configured. GitHub CLI `2.98.0` is authenticated as `prathameshparit` and stores its credential in the Windows keyring.
 - [x] Sideloadly v0.60 installed and running from the user's local application directory.
-- [ ] Apple iTunes installed using the installer required by Sideloadly.
-- [ ] Apple iCloud installed using the installer required by Sideloadly.
+- [x] Apple desktop iTunes `12.13.10.3` installed from Apple's signed 64-bit installer through the verified Windows Package Manager manifest.
+- [ ] Apple iCloud is deferred. The initial path will use Sideloadly Remote Anisette; install desktop iCloud only if a signing test proves it necessary.
 - [ ] iPhone is visible to iTunes/Apple device services over USB.
 - [ ] iPhone trusts this Windows computer.
 - [x] Windows has at least 10 GB free for source, downloaded IPA artifacts, and logs. **D: had 317.63 GB free at audit.**

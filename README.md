@@ -12,8 +12,8 @@ The project will later support memory capture and field checklists, but the firs
 
 Current blockers:
 
-- Increase iPhone free storage from `3.85 GB` to at least `5 GB`.
-- Install the Apple Windows components required by Sideloadly; they are not currently detected.
+- Confirm the iPhone's new available-storage amount is at least `5 GB`.
+- Connect the unlocked iPhone to desktop iTunes by data cable and complete the Trust prompt.
 
 We will not attempt a cloud build until this audit passes.
 
@@ -28,6 +28,7 @@ We will not attempt a cloud build until this audit passes.
 - Sideloadly v0.60 is installed and running on Windows.
 - GitHub CLI is securely authenticated as `prathameshparit` using the Windows credential keyring.
 - Public GitHub repository is active at https://github.com/prathameshparit/meta-glasses-visual-tutor with Actions enabled.
+- Apple desktop iTunes `12.13.10.3` is installed; iCloud is deferred unless Sideloadly reports an Anisette requirement.
 
 Serial numbers are intentionally not copied into this repository.
 

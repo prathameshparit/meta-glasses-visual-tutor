@@ -156,3 +156,29 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Result: PASS
 - Evidence: GitHub CLI repository JSON and Actions permissions API response.
 - Follow-up: finish the remaining iPhone storage and Apple Windows connection prerequisites.
+
+## T-20260830-07 — Apple desktop iTunes installation
+
+- Milestone: 1
+- Build/commit: local infrastructure
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: Codex
+- Environment:
+  - Windows package: `Apple.iTunes` `12.13.10.3`
+  - Installer source: `secure-appldnld.apple.com`
+  - Installer type: Apple 64-bit desktop EXE, not Microsoft Store
+- Preconditions: Sideloadly v0.60 installed; Apple device components not previously detected.
+- Steps:
+  1. Confirm Sideloadly's FAQ requires desktop/web iTunes for Windows device detection.
+  2. Inspect the Windows Package Manager manifest and confirm the publisher, Apple download URL, and SHA-256 are present.
+  3. Install `Apple.iTunes` through Windows Package Manager.
+  4. Verify iTunes `12.13.10.3` is installed and launch it for interactive device trust.
+- Expected: Apple's desktop iTunes installs successfully and is ready for the physical USB trust test.
+- Actual: package installed successfully and iTunes launched. No iPhone was present during the post-install device query, so USB detection remains untested.
+- Result: PASS
+- Evidence: package-manager hash verification, successful installation result, installed-package query, and `C:\Program Files\iTunes` presence.
+- Follow-up:
+  1. Connect and unlock the iPhone with a data cable.
+  2. Tap Trust on the iPhone and complete any matching iTunes prompt.
+  3. Verify the device in iTunes, Windows PnP, and Sideloadly.
+  4. Install iCloud only if the later IPA signing test reports an Anisette requirement.

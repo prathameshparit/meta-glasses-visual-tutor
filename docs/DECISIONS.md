@@ -47,3 +47,12 @@ No AI provider is chosen until registration, camera streaming, trigger, and audi
 
 Every milestone must include a test-log entry with environment, steps, expected result, actual result, and evidence. “It should work” does not close a gate.
 
+## D-007 — Defer iCloud until a signing test requires it
+
+**Status:** Accepted
+
+Install Apple's desktop iTunes package for USB device/trust support. Begin with Sideloadly Remote Anisette and do not install iCloud preemptively.
+
+Why: iCloud is not needed for USB device detection, and Sideloadly supports Remote Anisette. If the first signing test reports an Anisette-specific failure, install the compatible desktop iCloud package and retest.
+
+Consequence: Remote Anisette sends limited environment metadata to Sideloadly's Anisette service as described in its FAQ; Apple credentials are still sent to Apple rather than stored in the repository.
