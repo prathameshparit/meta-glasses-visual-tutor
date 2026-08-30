@@ -334,3 +334,18 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Result: PENDING — do not close Milestone 3 until the app is launched on the iPhone.
 - Evidence: user report only; no credentials, codes, or account identifiers recorded.
 - Follow-up: locate and open **Visual Tutor** on the iPhone. Confirm it displays `Cloud build proof` and `Build 1`, then record any iOS Developer Mode/profile-trust prompt and the expiry date Sideloadly reports.
+
+## T-20260830-17 — First app launch blocked by developer-profile trust
+
+- Milestone: 3
+- Build/commit: unsigned IPA from `1edfb43`, installed through Sideloadly.
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user
+- Preconditions: the proof app is present on the iPhone after Sideloadly installation.
+- Steps:
+  1. Open **Visual Tutor** on the iPhone.
+- Expected: the proof screen launches.
+- Actual: iOS reports that device-management settings do not allow apps from the `iPhone Developer: Prathamesh Parit` profile and directs the user to Settings to allow it.
+- Result: FAIL — expected iOS free-sideload trust requirement, not a build or installation failure.
+- Evidence: user-reported iPhone error text; no Apple Account identifier is recorded.
+- Follow-up: in iPhone **Settings → General → VPN & Device Management**, select the developer profile and tap **Trust** / **Allow**. If that menu has no profile, confirm **Settings → Privacy & Security → Developer Mode** is enabled, restart when iOS requests it, then retry the app.
