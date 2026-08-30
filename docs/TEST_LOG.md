@@ -182,3 +182,35 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
   2. Tap Trust on the iPhone and complete any matching iTunes prompt.
   3. Verify the device in iTunes, Windows PnP, and Sideloadly.
   4. Install iCloud only if the later IPA signing test reports an Anisette requirement.
+
+## T-20260830-08 — iTunes Store sign-in
+
+- Milestone: 1
+- Build/commit: local infrastructure
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user supplied screenshot
+- Preconditions: Apple desktop iTunes `12.13.10.3` installed and launched.
+- Steps:
+  1. Attempt to access/sign in to the iTunes Store.
+- Expected: iTunes Store request completes.
+- Actual: iTunes reports temporary unknown error `-45054` and links Apple Support article `108339`.
+- Result: FAIL — NON-BLOCKING
+- Evidence: user-supplied screenshot.
+- Follow-up: do not modify iTunes Store authorization data because store sign-in is not needed for USB device detection or Sideloadly. Revisit only if a later signing test proves it relevant.
+
+## T-20260830-09 — Windows USB detection of iPhone
+
+- Milestone: 1
+- Build/commit: local infrastructure
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: Codex
+- Preconditions: iPhone connected by USB after desktop iTunes installation.
+- Steps:
+  1. Query present Windows Plug and Play devices for Apple USB identifiers.
+  2. Check reported device status.
+  3. Launch Sideloadly for interactive device selection.
+- Expected: Windows recognizes the physical iPhone through Apple USB support.
+- Actual: Windows reports `Apple Mobile Device USB Composite Device` and its MTP interface with status `OK`. Sideloadly was launched; its device-selector result requires visual confirmation.
+- Result: PASS for Windows USB detection; Sideloadly selection pending.
+- Evidence: redacted PnP query output; device instance serial omitted.
+- Follow-up: confirm that the iPhone appears in Sideloadly's device drop-down. No iTunes Store sign-in is required.

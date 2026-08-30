@@ -13,7 +13,7 @@ The project will later support memory capture and field checklists, but the firs
 Current blockers:
 
 - Confirm the iPhone's new available-storage amount is at least `5 GB`.
-- Connect the unlocked iPhone to desktop iTunes by data cable and complete the Trust prompt.
+- Confirm the connected iPhone appears in Sideloadly's device selector.
 
 We will not attempt a cloud build until this audit passes.
 
@@ -29,6 +29,7 @@ We will not attempt a cloud build until this audit passes.
 - GitHub CLI is securely authenticated as `prathameshparit` using the Windows credential keyring.
 - Public GitHub repository is active at https://github.com/prathameshparit/meta-glasses-visual-tutor with Actions enabled.
 - Apple desktop iTunes `12.13.10.3` is installed; iCloud is deferred unless Sideloadly reports an Anisette requirement.
+- Windows detects the connected iPhone as a healthy Apple Mobile Device USB composite device.
 
 Serial numbers are intentionally not copied into this repository.
 
