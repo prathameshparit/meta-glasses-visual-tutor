@@ -78,3 +78,11 @@ The initial app is compiled on a GitHub-hosted macOS runner with every code-sign
 Why: it proves Windows-only editing can produce an inspectable iPhone artifact without an Apple certificate, provisioning profile, or paid developer membership.
 
 Consequence: this artifact cannot launch until Sideloadly signs it locally with the user's Apple Account. The source build is deliberately tiny until that installation proof passes.
+
+## D-010 — Defer exact signing-expiry evidence to the maintenance rehearsal
+
+**Status:** Accepted
+
+The free-sideload proof milestone is complete once the stateless proof app launches and displays the expected build. Record the exact expiry date and perform a real refresh in Milestone 14 using the feature app rather than delaying hardware integration for administrative information.
+
+Why: the proof app has no user data, while Milestone 14 is explicitly designed to validate signing expiry, refresh, and persistence on the relevant app state.

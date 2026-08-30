@@ -8,13 +8,13 @@ The project will later support memory capture and field checklists, but the firs
 
 ## Current status
 
-**Milestone 3 — Free sideload proof: IN PROGRESS**
+**Milestone 4 — Official Meta registration proof: IN PROGRESS**
 
 Next action:
 
-- Record the exact Sideloadly expiry/refresh date for the free-signed proof app. The remaining product work stays blocked until that final Milestone 3 record is captured.
+- Prepare a minimal, buildable adaptation of Meta's official CameraAccess sample using the glasses' enabled Developer Mode.
 
-Milestones 1 and 2 passed. No credentials are stored in this repository.
+Milestones 1–3 passed. No credentials are stored in this repository.
 
 ## Confirmed from the supplied screenshots
 

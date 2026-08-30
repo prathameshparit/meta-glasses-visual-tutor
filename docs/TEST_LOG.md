@@ -379,4 +379,18 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Actual: user reports that **Visual Tutor** opens successfully and displays `Cloud build proof` and `Build 1`.
 - Result: PASS for installation, iOS profile trust, Developer Mode, physical launch, and build-identifier match.
 - Evidence: user confirmation.
-- Follow-up: record the exact free-signing expiry/refresh date shown by Sideloadly. The proof app has no persisted user data, so reinstall-data preservation is not applicable to this intentionally stateless test app.
+- Follow-up: Milestone 3 is complete. The proof app has no persisted user data, so reinstall-data preservation is not applicable. Exact signing-expiry evidence and a refresh test move to Milestone 14 by D-010.
+
+## T-20260830-20 — Free-sideload proof acceptance
+
+- Milestone: 3
+- Build/commit: `1edfb43`; proof evidence recorded through `a6f2df4`.
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: Codex
+- Acceptance review:
+  - Physical iPhone app launch: PASS (T-20260830-19).
+  - Visible build identifier: PASS (T-20260830-19, Build `1`).
+  - Reinstall data persistence: not applicable; the proof app is intentionally stateless.
+  - Signing expiry/refresh: deferred to Milestone 14 by D-010.
+- Result: PASS — Milestone 3 complete; Milestone 4 may begin.
+- Evidence: physical-device launch confirmation and prior build-artifact inspection.

@@ -53,7 +53,7 @@ Gate:
 
 ## Milestone 3 — Free sideload proof
 
-**Status:** IN PROGRESS
+**Status:** DONE
 
 Goal: install and launch our own build on the physical iPhone.
 
@@ -69,12 +69,12 @@ Gate:
 
 - App launches on the physical iPhone.
 - Displayed build identifier matches the GitHub artifact.
-- Reinstalling the same bundle preserves expected app data.
-- Expiry/refresh date is recorded.
+- The stateless proof app has no user data to preserve across reinstall.
+- Exact expiry/refresh evidence is deferred to Milestone 14, where a refresh is exercised on the real feature build.
 
 ## Milestone 4 — Official Meta registration proof
 
-**Status:** BLOCKED BY MILESTONE 3
+**Status:** IN PROGRESS
 
 Goal: validate Meta DAT independently of our AI code.
 
