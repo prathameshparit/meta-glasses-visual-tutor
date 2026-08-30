@@ -1,0 +1,75 @@
+# Prerequisites
+
+This checklist is a gate. Do not begin the first cloud build until all **Required for Milestone 2** items are known and satisfied.
+
+## Hardware and device state
+
+- [x] Ray-Ban Meta Wayfarer Gen 2 glasses available.
+- [x] Glasses connected and working in Meta AI.
+- [x] Glasses DAT component `0.9.0.26.0` installed.
+- [x] Meta AI Developer Mode enabled.
+- [x] Record the iPhone model without recording its serial number: iPhone 14.
+- [x] Confirm the iOS version: `26.5`.
+- [x] Confirm iOS is at least `17.2`, the minimum for Meta DAT iOS `0.9.0`.
+- [ ] Confirm at least 5 GB free iPhone storage for builds, logs, and captured media. **Current: 3.85 GB — FAIL.**
+- [ ] Confirm the Lightning/USB-C data cable supports data, not charging only.
+
+On-device vision models are optional and will require a recent iPhone plus several additional gigabytes. They are not prerequisites for the first MVP.
+
+## Accounts
+
+- [x] GitHub account available: `prathameshparit`.
+- [ ] Free Apple Account available for sideload signing.
+- [ ] Apple Account has two-factor authentication working.
+- [x] Meta account and Meta AI pairing available.
+- [ ] Decide whether the source repository may be public. Public repositories generally avoid consuming the limited private-repository Actions allowance, but this must be rechecked against current GitHub billing before the first run.
+
+Recommended: use a separate Apple Account for sideload development. Do not place its password in this repository or GitHub Actions.
+
+## Windows software
+
+- [x] Git installed: `git version 2.37.2.windows.2`.
+- [ ] GitHub authentication configured. GitHub CLI `2.98.0` is installed; browser/device authentication is pending token revocation.
+- [x] Sideloadly v0.60 installed and running from the user's local application directory.
+- [ ] Apple iTunes installed using the installer required by Sideloadly.
+- [ ] Apple iCloud installed using the installer required by Sideloadly.
+- [ ] iPhone is visible to iTunes/Apple device services over USB.
+- [ ] iPhone trusts this Windows computer.
+- [x] Windows has at least 10 GB free for source, downloaded IPA artifacts, and logs. **D: had 317.63 GB free at audit.**
+
+Sideloadly's current documentation should be followed for the exact iTunes/iCloud packages; do not substitute unofficial downloads.
+
+## iPhone setup
+
+- [ ] Developer Mode enabled under iPhone privacy/security settings if requested after the first sideload.
+- [ ] The free developer profile can be trusted under VPN & Device Management.
+- [ ] Background App Refresh enabled for the test app when it exists.
+- [ ] Bluetooth enabled.
+- [ ] Local Network permission may be granted when requested.
+- [ ] Microphone and Speech Recognition permissions may be granted when requested.
+
+## Cloud build prerequisites
+
+- [ ] Repository created on GitHub.
+- [ ] GitHub Actions enabled for the repository.
+- [ ] Workflow uses a current macOS/Xcode image compatible with the iPhone's iOS version.
+- [ ] Workflow builds without signing: no Apple password, certificate, or provisioning profile in CI.
+- [ ] Workflow uploads the unsigned IPA as a build artifact.
+
+## AI prerequisites — deferred until camera validation
+
+Choose only after Milestone 5 passes:
+
+- Laptop-hosted vision model: no per-request API cost, more setup and network dependency.
+- Cloud model: faster integration, but requires an API key and may cost money.
+- On-iPhone model: private and offline, but device-dependent and resource-heavy.
+
+No AI API key is required for signing, Meta registration, camera streaming, or audio smoke tests.
+
+## Security rules
+
+- Never commit `.env`, API keys, Apple cookies, Apple passwords, signing certificates, provisioning profiles, or Meta production client tokens.
+- Use Meta Developer Mode with `MetaAppID = 0` for early hardware validation.
+- Keep raw camera frames ephemeral by default.
+- Do not upload frames until the user explicitly enables a cloud backend.
+- Keep the glasses' capture indicator unobstructed and respect bystander privacy.

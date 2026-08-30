@@ -1,0 +1,32 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+Config.xcconfig
+*.p12
+*.p8
+*.cer
+*.mobileprovision
+*.provisionprofile
+*.key
+
+# Apple/Xcode output
+DerivedData/
+build/
+Payload/
+*.ipa
+*.xcarchive
+*.dSYM
+xcuserdata/
+*.xcuserstate
+
+# Local tooling
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs and captured media
+*.log
+captures/
+test-artifacts/private/

@@ -1,0 +1,116 @@
+# Test log
+
+Append new entries. Do not rewrite failed results after a fix; create a new entry so the diagnostic history remains useful.
+
+## Entry template
+
+### T-YYYYMMDD-NN — Short test name
+
+- Milestone:
+- Build/commit:
+- Date/time and timezone:
+- Tester:
+- Environment:
+  - Windows version:
+  - iPhone model/iOS:
+  - Meta AI version:
+  - Glasses release:
+  - On-glasses DAT version:
+- Preconditions:
+- Steps:
+  1.
+- Expected:
+- Actual:
+- Result: PASS / FAIL / BLOCKED
+- Evidence: artifact name, screenshot name, relevant redacted log excerpt
+- Follow-up:
+
+## T-20260830-01 — Device/developer-mode screenshot audit
+
+- Milestone: 0
+- Build/commit: documentation only
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user supplied evidence; Codex reviewed
+- Environment:
+  - iPhone model/iOS: not yet recorded
+  - Meta AI version: `287.0.0.11.156`
+  - Glasses release: `127.14.0.220.436`
+  - On-glasses DAT version: `0.9.0.26.0`
+- Preconditions: glasses paired in Meta AI.
+- Steps:
+  1. Inspect Meta AI App Info screenshot.
+  2. Inspect glasses About screenshot.
+- Expected: Developer Mode enabled and glasses/DAT visible.
+- Actual: Developer Mode is enabled; connected glasses and DAT version are visible.
+- Result: PASS
+- Evidence: user-provided screenshots; serial numbers deliberately omitted.
+- Follow-up: record iPhone model, iOS version, and free storage during Milestone 1.
+
+## T-20260830-02 — Documentation consistency
+
+- Milestone: 0
+- Build/commit: documentation only
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: Codex
+- Preconditions: documentation files created.
+- Steps:
+  1. Verify all handbook files exist.
+  2. Verify only Milestone 0 is marked done.
+  3. Verify the next action is the prerequisite audit.
+- Expected: documents agree on status and next gate.
+- Actual: all seven handbook files exist; status markers agree that Milestone 0 is done and Milestone 1 is next.
+- Result: PASS
+- Evidence: `rg --files` plus status-marker review on 2026-08-30.
+- Follow-up: begin Milestone 1 with the iPhone model, iOS version, and free-storage check.
+
+## T-20260830-03 — Initial prerequisite audit
+
+- Milestone: 1
+- Build/commit: documentation only
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user supplied device evidence; Codex ran Windows checks
+- Environment:
+  - Windows workspace drive: 317.63 GB free
+  - iPhone model/iOS: iPhone 14 / iOS `26.5`
+  - iPhone capacity/free: 128 GB / 3.85 GB
+  - Meta AI version: `287.0.0.11.156`
+  - Glasses release: `127.14.0.220.436`
+  - On-glasses DAT version: `0.9.0.26.0`
+- Preconditions: Sideloadly v0.60 installer run; iPhone About screenshot supplied.
+- Steps:
+  1. Inspect the iPhone model, iOS, capacity, and available-storage fields.
+  2. Inspect the Sideloadly setup completion screen.
+  3. Run `git --version` and check workspace free space.
+  4. Query installed Apple components, Apple Mobile Device service, and connected Apple PnP devices.
+- Expected: compatible iPhone, at least 5 GB free, Git/Sideloadly/Apple components present, and iPhone visible to Windows.
+- Actual: iPhone and iOS are compatible; Git and Windows storage pass. iPhone storage is below the project minimum. Sideloadly v0.60 is installed and its app plus refresh daemon are running. Required Apple components, service, and connected iPhone were not detected.
+- Result: BLOCKED
+- Evidence: user screenshots plus redacted PowerShell prerequisite output. The phone serial number was not recorded.
+- Follow-up:
+  1. Free at least 1.15 GB more on the iPhone, preferably reaching 8–10 GB for safer test iterations.
+  2. Install/repair the exact iTunes and iCloud desktop packages required by Sideloadly.
+  3. Connect the unlocked iPhone by data cable, tap Trust, and repeat device/service checks.
+
+## T-20260830-04 — GitHub account and CLI preparation
+
+- Milestone: 1
+- Build/commit: documentation and local tooling
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: Codex
+- Environment:
+  - GitHub account: `prathameshparit`
+  - GitHub CLI: `2.98.0`
+- Preconditions: user supplied a GitHub profile and a personal access token in chat.
+- Steps:
+  1. Verify the public GitHub profile exists.
+  2. Refuse to use or store the exposed token.
+  3. Install GitHub CLI from the Windows package manager.
+  4. Verify GitHub CLI reports no authenticated host.
+- Expected: GitHub account confirmed and a secret-free authentication path prepared.
+- Actual: account confirmed; GitHub CLI installed; authentication intentionally deferred until the exposed token is revoked.
+- Result: BLOCKED
+- Evidence: GitHub public profile and local `gh --version` / `gh auth status` output.
+- Follow-up:
+  1. Revoke the exposed personal access token in GitHub settings.
+  2. Authenticate with `gh auth login` using the browser/device flow.
+  3. Create the project repository without storing credentials in files or command arguments.
