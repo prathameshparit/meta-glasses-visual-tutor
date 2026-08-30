@@ -349,3 +349,18 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Result: FAIL — expected iOS free-sideload trust requirement, not a build or installation failure.
 - Evidence: user-reported iPhone error text; no Apple Account identifier is recorded.
 - Follow-up: in iPhone **Settings → General → VPN & Device Management**, select the developer profile and tap **Trust** / **Allow**. If that menu has no profile, confirm **Settings → Privacy & Security → Developer Mode** is enabled, restart when iOS requests it, then retry the app.
+
+## T-20260830-18 — First app launch blocked by Developer Mode
+
+- Milestone: 3
+- Build/commit: unsigned IPA from `1edfb43`, installed through Sideloadly.
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user
+- Preconditions: developer profile has been accepted sufficiently for iOS to evaluate app execution.
+- Steps:
+  1. Retry opening **Visual Tutor** after the developer-profile prompt.
+- Expected: the proof screen launches.
+- Actual: iOS reports that **Visual Tutor requires Developer Mode to run** and will remain unavailable until Developer Mode is enabled.
+- Result: FAIL — expected iOS sideload security requirement, not a build failure.
+- Evidence: user-reported iPhone error text.
+- Follow-up: go to **Settings → Privacy & Security → Developer Mode**, turn it on, approve the restart, unlock after restart, and approve the final Developer Mode confirmation. Then open **Visual Tutor** again.
