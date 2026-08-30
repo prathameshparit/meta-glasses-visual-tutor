@@ -298,3 +298,22 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Result: PASS — Milestone 1 acceptance gate passes.
 - Evidence: user confirmation; repository credential-pattern scan is clean.
 - Follow-up: begin Milestone 2 with a minimal unsigned IPA cloud build.
+
+## T-20260830-15 — Unsigned iPhone cloud-build proof
+
+- Milestone: 2
+- Build/commit: `1edfb43` (`1edfb43892dd445f9557431371fc3b025a9465a6`)
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: Codex
+- Environment: GitHub Actions macOS runner; workflow run `33310081411`; Xcode project target `VisualTutorProof` with iOS deployment target `17.2`.
+- Preconditions: Milestone 1 passed; no Apple credentials, certificates, provisioning profiles, or signing secrets are available to the workflow.
+- Steps:
+  1. Trigger the workflow by pushing the minimal SwiftUI proof app and workflow.
+  2. Compile the iPhone target with `CODE_SIGNING_ALLOWED=NO`, `CODE_SIGNING_REQUIRED=NO`, and an empty signing identity.
+  3. Package the generated app inside an IPA `Payload/` directory and upload it with commit/build metadata.
+  4. Download the artifact locally and inspect its ZIP entries and metadata.
+- Expected: a green workflow produces an unsigned IPA containing `Payload/VisualTutorProof.app` and an `Info.plist`, tied to the source commit.
+- Actual: run `33310081411` passed in 25 seconds. Downloaded artifact `VisualTutorProof-1edfb43.ipa` is 15,529 bytes, contains `Payload/VisualTutorProof.app` (including `Info.plist`), and its metadata records the full commit SHA and build `1`.
+- Result: PASS — Milestone 2 acceptance gate passes.
+- Evidence: GitHub Actions run and locally inspected downloaded artifact. The runner emitted a Node 20 deprecation notice for GitHub-maintained actions but it did not affect this build.
+- Follow-up: use this exact artifact in Sideloadly for Milestone 3; record the physical launch result before adding Meta SDK code.

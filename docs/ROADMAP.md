@@ -34,7 +34,7 @@ Gate:
 
 ## Milestone 2 — Cloud-build proof
 
-**Status:** IN PROGRESS
+**Status:** DONE
 
 Goal: prove that Windows edits can produce a downloadable unsigned iPhone IPA without a Mac or paid Apple membership.
 
@@ -53,7 +53,7 @@ Gate:
 
 ## Milestone 3 — Free sideload proof
 
-**Status:** BLOCKED BY MILESTONE 2
+**Status:** IN PROGRESS
 
 Goal: install and launch our own build on the physical iPhone.
 

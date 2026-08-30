@@ -68,3 +68,13 @@ Install the free Apple Devices Windows app alongside desktop iTunes to establish
 Why: Apple officially uses this app to manage iPhone connections on current Windows releases. The existing desktop iTunes installation did not expose a running Apple Mobile Device Service, while the iPhone was detectable only as a Windows USB/MTP device.
 
 Consequence: this is a diagnostic compatibility path, not a replacement for Sideloadly's documented legacy iCloud requirement. We must prove the actual Sideloadly selector result before continuing.
+
+## D-009 — Unsigned IPA packaging in GitHub Actions
+
+**Status:** Accepted
+
+The initial app is compiled on a GitHub-hosted macOS runner with every code-signing setting disabled. The workflow packages the resulting `.app` inside `Payload/` in an IPA and uploads it with commit/build metadata.
+
+Why: it proves Windows-only editing can produce an inspectable iPhone artifact without an Apple certificate, provisioning profile, or paid developer membership.
+
+Consequence: this artifact cannot launch until Sideloadly signs it locally with the user's Apple Account. The source build is deliberately tiny until that installation proof passes.

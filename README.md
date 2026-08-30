@@ -8,13 +8,13 @@ The project will later support memory capture and field checklists, but the firs
 
 ## Current status
 
-**Milestone 2 — Cloud-build proof: IN PROGRESS**
+**Milestone 3 — Free sideload proof: IN PROGRESS**
 
 Next action:
 
-- Build a minimal unsigned IPA in GitHub Actions and inspect its artifact.
+- Download the verified unsigned IPA and install it through Sideloadly using the user's private Apple Account.
 
-Milestone 1 passed. No credentials are stored in this repository.
+Milestones 1 and 2 passed. No credentials are stored in this repository.
 
 ## Confirmed from the supplied screenshots
 
@@ -32,6 +32,7 @@ Milestone 1 passed. No credentials are stored in this repository.
 - Windows detects the connected iPhone as a healthy Apple Mobile Device USB composite device.
 - Sideloadly lists the connected iPhone over USB.
 - A free Apple Account and two-factor authentication are available for the later sideload step; its credentials remain private.
+- GitHub Actions produced and artifact-verified an unsigned iPhone IPA for commit `1edfb43`.
 - The legacy web iCloud installer failed with Windows Installer error `1722`; it is not installed and is not needed for the now-proven USB device path.
 
 Serial numbers are intentionally not copied into this repository.
