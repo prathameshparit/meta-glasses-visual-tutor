@@ -12,8 +12,7 @@ The project will later support memory capture and field checklists, but the firs
 
 Current blockers:
 
-- Confirm the iPhone's new available-storage amount is at least `5 GB`.
-- Confirm the connected iPhone appears in Sideloadly's device selector.
+- Make the connected iPhone visible in Sideloadly's device selector.
 
 We will not attempt a cloud build until this audit passes.
 
@@ -28,8 +27,10 @@ We will not attempt a cloud build until this audit passes.
 - Sideloadly v0.60 is installed and running on Windows.
 - GitHub CLI is securely authenticated as `prathameshparit` using the Windows credential keyring.
 - Public GitHub repository is active at https://github.com/prathameshparit/meta-glasses-visual-tutor with Actions enabled.
-- Apple desktop iTunes `12.13.10.3` is installed; iCloud is deferred unless Sideloadly reports an Anisette requirement.
+- The iPhone has `6 GB` free storage, passing the `5 GB` prerequisite.
+- Apple desktop iTunes `12.13.10.3` and Apple Devices for Windows are installed.
 - Windows detects the connected iPhone as a healthy Apple Mobile Device USB composite device.
+- Sideloadly does not yet list the iPhone. The legacy web iCloud installer failed with Windows Installer error `1722`; it is not installed.
 
 Serial numbers are intentionally not copied into this repository.
 

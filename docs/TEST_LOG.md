@@ -214,3 +214,55 @@ Append new entries. Do not rewrite failed results after a fix; create a new entr
 - Result: PASS for Windows USB detection; Sideloadly selection pending.
 - Evidence: redacted PnP query output; device instance serial omitted.
 - Follow-up: confirm that the iPhone appears in Sideloadly's device drop-down. No iTunes Store sign-in is required.
+
+## T-20260830-10 — Storage and Sideloadly device-selector gate
+
+- Milestone: 1
+- Build/commit: `fe18aaa`
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: user
+- Preconditions: iPhone connected by USB; desktop iTunes installed; Windows PnP test passed.
+- Steps:
+  1. Check iPhone available storage.
+  2. Inspect Sideloadly's device drop-down with the iPhone connected.
+- Expected: at least `5 GB` iPhone free storage and a selectable iPhone in Sideloadly.
+- Actual: iPhone has `6 GB` free storage (PASS). User reports the iPhone does not appear in Sideloadly (FAIL).
+- Result: FAIL — prerequisite audit remains open.
+- Evidence: user report.
+- Follow-up: establish Apple pairing/trust and retest Sideloadly; do not begin a cloud build.
+
+## T-20260830-11 — Legacy web iCloud installation
+
+- Milestone: 1
+- Build/commit: local infrastructure
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: Codex
+- Environment: Apple-signed iCloud installer `7.21.0.23`, downloaded from the current web-iCloud link on Sideloadly's site.
+- Preconditions: Sideloadly device selector reports no iPhone; iTunes desktop is installed.
+- Steps:
+  1. Verify the installer signature belongs to Apple Inc.
+  2. Run the installer silently.
+  3. Retry elevated after the first attempt reports insufficient privileges.
+  4. Query Windows Installer events and installed-product/service state.
+- Expected: iCloud installs and its Apple connection components become available.
+- Actual: the first attempt exits `1603` due to insufficient privileges. The elevated retry reaches `RuniCloudUpgrade` but fails with Windows Installer error `1722` while executing `iCloud.exe /upgrade`; iCloud is not registered as installed.
+- Result: FAIL.
+- Evidence: local installer log and Windows Installer events; no iCloud product/service detected after retry.
+- Follow-up: use Apple Devices for an interactive trust/pairing check, then retest Sideloadly. Do not claim iCloud is installed.
+
+## T-20260830-12 — Apple Devices pairing diagnostic
+
+- Milestone: 1
+- Build/commit: local infrastructure
+- Date/time and timezone: 2026-08-30, Asia/Calcutta
+- Tester: Codex; trust confirmation pending from user
+- Environment: Apple Devices `1.1540.23042.0`, installed from Microsoft Store; iPhone attached by USB.
+- Steps:
+  1. Install Apple Devices from the official Microsoft Store package.
+  2. Launch it with the iPhone connected.
+  3. Query installed package and connected PnP devices.
+- Expected: Apple Devices launches and presents a trust/pairing opportunity for the connected iPhone.
+- Actual: the Apple Devices package is installed and was launched. Windows still reports the iPhone USB and MTP interfaces as healthy; no Apple Mobile Device Service appeared in the immediate post-launch query. Interactive trust/pairing and the Sideloadly retest are pending.
+- Result: BLOCKED.
+- Evidence: installed Appx package query and redacted PnP query.
+- Follow-up: unlock the iPhone, accept any Trust prompt in Apple Devices/iPhone, then reopen Sideloadly and verify its drop-down.

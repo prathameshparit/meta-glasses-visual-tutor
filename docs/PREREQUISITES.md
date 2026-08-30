@@ -11,7 +11,7 @@ This checklist is a gate. Do not begin the first cloud build until all **Require
 - [x] Record the iPhone model without recording its serial number: iPhone 14.
 - [x] Confirm the iOS version: `26.5`.
 - [x] Confirm iOS is at least `17.2`, the minimum for Meta DAT iOS `0.9.0`.
-- [ ] Confirm at least 5 GB free iPhone storage for builds, logs, and captured media. **Current: 3.85 GB — FAIL.**
+- [x] Confirm at least 5 GB free iPhone storage for builds, logs, and captured media. **Current: 6 GB — PASS.**
 - [ ] Confirm the Lightning/USB-C data cable supports data, not charging only.
 
 On-device vision models are optional and will require a recent iPhone plus several additional gigabytes. They are not prerequisites for the first MVP.
@@ -34,9 +34,10 @@ Security note: a GitHub personal access token was exposed in chat during setup. 
 - [x] GitHub authentication configured. GitHub CLI `2.98.0` is authenticated as `prathameshparit` and stores its credential in the Windows keyring.
 - [x] Sideloadly v0.60 installed and running from the user's local application directory.
 - [x] Apple desktop iTunes `12.13.10.3` installed from Apple's signed 64-bit installer through the verified Windows Package Manager manifest.
-- [x] Apple iCloud is intentionally not required for the initial Remote Anisette path; install it only if a signing test proves it necessary.
+- [x] Apple Devices for Windows `1.1540.23042.0` installed from Apple through Microsoft Store as a USB-pairing diagnostic.
+- [ ] Compatible web iCloud installed. **FAIL: Apple's current Sideloadly-linked legacy installer (`7.21.0.23`) exits with Windows Installer error `1722` during its upgrade action.**
 - [x] iPhone is visible to Windows over USB as `Apple Mobile Device USB Composite Device` with healthy status.
-- [ ] iPhone trusts this Windows computer.
+- [ ] iPhone trusts this Windows computer and appears in Sideloadly's device selector.
 - [x] Windows has at least 10 GB free for source, downloaded IPA artifacts, and logs. **D: had 317.63 GB free at audit.**
 
 Sideloadly's current documentation should be followed for the exact iTunes/iCloud packages; do not substitute unofficial downloads.

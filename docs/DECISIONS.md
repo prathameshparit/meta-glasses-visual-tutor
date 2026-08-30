@@ -47,12 +47,24 @@ No AI provider is chosen until registration, camera streaming, trigger, and audi
 
 Every milestone must include a test-log entry with environment, steps, expected result, actual result, and evidence. “It should work” does not close a gate.
 
-## D-007 — Defer iCloud until a signing test requires it
+## D-007 — Desktop Apple tooling for Sideloadly device discovery
 
-**Status:** Accepted
+**Status:** Superseded by device-detection evidence
 
-Install Apple's desktop iTunes package for USB device/trust support. Begin with Sideloadly Remote Anisette and do not install iCloud preemptively.
+Install Apple's desktop iTunes package for USB device/trust support. Begin with Sideloadly Remote Anisette and defer iCloud unless a signing test requires it.
 
 Why: iCloud is not needed for USB device detection, and Sideloadly supports Remote Anisette. If the first signing test reports an Anisette-specific failure, install the compatible desktop iCloud package and retest.
 
 Consequence: Remote Anisette sends limited environment metadata to Sideloadly's Anisette service as described in its FAQ; Apple credentials are still sent to Apple rather than stored in the repository.
+
+Superseding evidence: Windows detected the iPhone but Sideloadly's device selector did not. Sideloadly's current troubleshooting guide explicitly directs a web iTunes/iCloud reinstall and reboot. The linked legacy iCloud installer failed on this Windows host with error `1722`, so it is not a viable prerequisite until its installer compatibility is resolved.
+
+## D-008 — Use Apple Devices as the non-destructive pairing diagnostic
+
+**Status:** Accepted
+
+Install the free Apple Devices Windows app alongside desktop iTunes to establish the iPhone trust/pairing path and current Apple device components.
+
+Why: Apple officially uses this app to manage iPhone connections on current Windows releases. The existing desktop iTunes installation did not expose a running Apple Mobile Device Service, while the iPhone was detectable only as a Windows USB/MTP device.
+
+Consequence: this is a diagnostic compatibility path, not a replacement for Sideloadly's documented legacy iCloud requirement. We must prove the actual Sideloadly selector result before continuing.
